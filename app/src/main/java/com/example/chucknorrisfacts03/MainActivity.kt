@@ -34,9 +34,10 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(call: Call?, e: IOException?) {
                 }
 
-            override fun onResponse(call: Call?, response: Response?) {
-                val json = response?.body()?.string()
-                val txt = (JSONObject(json).getJSONObject("valeu").get("joke").toString())
+            override fun onResponse(call: Call, response: Response) {
+                val json = response.body()?.string()
+
+                val txt = (JSONObject(json).getJSONObject("value").get("joke")).toString()
 
                 runOnUiThread {
                     progressBar.visibility = View.GONE
