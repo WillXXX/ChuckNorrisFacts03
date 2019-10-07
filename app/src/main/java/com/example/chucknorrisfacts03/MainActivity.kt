@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         val request: Request = Request.Builder().url(URL).build()
         okHttpClient.newCall(request).enqueue(object: Callback{
-            override fun onFailure(call: Call, e: IOException) {
+            override fun onFailure(call: Call?, e: IOException?) {
                 }
 
             override fun onResponse(call: Call?, response: Response?) {
